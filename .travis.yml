@@ -1,0 +1,32 @@
+language: java
+jdk: oraclejdk8
+dist: trusty
+before_install:
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && "$TRAVIS_BRANCH" == "master" ]]; then
+      rvm install 2.2;
+      rvm use 2.2;
+      gem install hiptest-publisher;
+    fi;
+script: mvn -B verify -P bower -DskipFrontend -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY
+after_script:
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && "$TRAVIS_BRANCH" == "master" ]]; then
+        sh publishHiptestResults.sh $HIPTEST_SECRET $HIPTEST_TEST_RUN;
+    fi;
+#deploy:
+#  - provider: script
+#    script: ./.travis.deploy.sh
+#    skip_cleanup: true
+#    on:
+#      branch: master
+
+# Cache requires a master build
+branches:
+  only:
+    - master
+cache:
+  directories:
+  - $HOME/.m2
+
+before_cache:
+  # remove all build artifacts
+  - rm -rf $HOME/.m2/repository/com/vaadin/vaadin-crud-flow
