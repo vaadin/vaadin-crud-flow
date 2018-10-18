@@ -76,9 +76,12 @@ public class CrudI18n implements Serializable {
      * Sets the new button and editor title text
      *
      * @param newItem the new button and editor title text
+     * 
+     * @return this instance for method chaining
      */
-    public void setNewItem(String newItem) {
+    public CrudI18n setNewItem(String newItem) {
         this.newItem = newItem;
+        return this;
     }
 
     /**
@@ -94,9 +97,12 @@ public class CrudI18n implements Serializable {
      * Sets the save button text
      *
      * @param saveItem the save button text
+     * 
+     * @return this instance for method chaining
      */
-    public void setSaveItem(String saveItem) {
+    public CrudI18n setSaveItem(String saveItem) {
         this.saveItem = saveItem;
+        return this;
     }
 
     /**
@@ -112,9 +118,12 @@ public class CrudI18n implements Serializable {
      * Sets the delete button text
      *
      * @param deleteItem the delete button text
+     * 
+     * @return this instance for method chaining
      */
-    public void setDeleteItem(String deleteItem) {
+    public CrudI18n setDeleteItem(String deleteItem) {
         this.deleteItem = deleteItem;
+        return this;
     }
 
     /**
@@ -130,9 +139,12 @@ public class CrudI18n implements Serializable {
      * Sets the edit editor title text
      *
      * @param editItem the edit editor title text
+     * 
+     * @return this instance for method chaining
      */
-    public void setEditItem(String editItem) {
+    public CrudI18n setEditItem(String editItem) {
         this.editItem = editItem;
+        return this;
     }
 
     /**
@@ -148,9 +160,12 @@ public class CrudI18n implements Serializable {
      * Sets the cancel button text
      *
      * @param cancel the cancel button text
+     * 
+     * @return this instance for method chaining
      */
-    public void setCancel(String cancel) {
+    public CrudI18n setCancel(String cancel) {
         this.cancel = cancel;
+        return this;
     }
 
     /**
@@ -166,9 +181,12 @@ public class CrudI18n implements Serializable {
      * Sets the edit button aria label
      *
      * @param editLabel the edit button aria label
+     * 
+     * @return this instance for method chaining
      */
-    public void setEditLabel(String editLabel) {
+    public CrudI18n setEditLabel(String editLabel) {
         this.editLabel = editLabel;
+        return this;
     }
 
     /**
@@ -184,9 +202,12 @@ public class CrudI18n implements Serializable {
      * Sets the confirmation dialogs
      *
      * @param confirm the confirmation dialogs
+     * 
+     * @return this instance for method chaining
      */
-    public void setConfirm(Confirmations confirm) {
+    public CrudI18n setConfirm(Confirmations confirm) {
         this.confirm = confirm;
+        return this;
     }
 
     @Override
@@ -223,9 +244,12 @@ public class CrudI18n implements Serializable {
          * Sets the delete confirmation dialog
          *
          * @param delete the delete confirmation dialog
+         *
+         * @return this instance for method chaining
          */
-        public void setDelete(Confirmation delete) {
+        public Confirmations setDelete(Confirmation delete) {
             this.delete = delete;
+            return this;
         }
 
         /**
@@ -241,9 +265,12 @@ public class CrudI18n implements Serializable {
          * Sets the cancel confirmation dialog
          *
          * @param cancel the cancel confirmation dialog
+         *
+         * @return this instance for method chaining
          */
-        public void setCancel(Confirmation cancel) {
+        public Confirmations setCancel(Confirmation cancel) {
             this.cancel = cancel;
+            return this;
         }
 
         @Override
@@ -276,9 +303,12 @@ public class CrudI18n implements Serializable {
              * Sets the main content in a dialog
              *
              * @param content the main content
+             *
+             * @return this instance for method chaining
              */
-            public void setContent(String content) {
+            public Confirmation setContent(String content) {
                 this.content = content;
+                return this;
             }
 
             /**
@@ -294,9 +324,12 @@ public class CrudI18n implements Serializable {
              * Sets the confirmation options in a dialog
              *
              * @param button the confirmation options
+             *
+             * @return this instance for method chaining
              */
-            public void setButton(Button button) {
+            public Confirmation setButton(Button button) {
                 this.button = button;
+                return this;
             }
 
             /**
@@ -312,9 +345,12 @@ public class CrudI18n implements Serializable {
              * Sets the title on a dialog
              *
              * @param title the title
+             *
+             * @return this instance for method chaining
              */
-            public void setTitle(String title) {
+            public Confirmation setTitle(String title) {
                 this.title = title;
+                return this;
             }
 
             @Override
@@ -347,9 +383,12 @@ public class CrudI18n implements Serializable {
                  * Sets the confirm text
                  *
                  * @param confirm the confirm text
+                 *
+                 * @return this instance for method chaining
                  */
-                public void setConfirm(String confirm) {
+                public Button setConfirm(String confirm) {
                     this.confirm = confirm;
+                    return this;
                 }
 
                 /**
@@ -365,9 +404,12 @@ public class CrudI18n implements Serializable {
                  * Sets the dismiss text
                  *
                  * @param dismiss the dismiss text
+                 *
+                 * @return this instance for method chaining
                  */
-                public void setDismiss(String dismiss) {
+                public Button setDismiss(String dismiss) {
                     this.dismiss = dismiss;
+                    return this;
                 }
 
                 @Override
