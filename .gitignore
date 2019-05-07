@@ -10,3 +10,8 @@ vaadin-crud-flow-integration-tests/error-screenshots/
 .settings
 **/.DS_Store
 chromedriver*
+
+# The following files are generated/updated by flow-maven-plugin
+package.json
+webpack.config.js
+node_modules/
