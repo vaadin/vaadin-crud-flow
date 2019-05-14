@@ -2,7 +2,7 @@ language: java
 jdk: oraclejdk8
 dist: trusty
 
-script: mvn -B verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
+script: mvn -B clean verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
 
 # Cache requires a master build
 branches:
@@ -12,7 +12,7 @@ branches:
 env:
   matrix:
     - IT_PROFILE=npm-it,!bower-it
-    - IT_PROFILE=bower-it,!npm-it
+#    - IT_PROFILE=bower-it,!npm-it
 
 cache:
   directories:
