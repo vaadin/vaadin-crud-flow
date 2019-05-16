@@ -10,6 +10,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class AbstractParallelTest extends ParallelTest {
@@ -74,12 +75,20 @@ public abstract class AbstractParallelTest extends ParallelTest {
         DesiredCapabilities ie11Windows8_1 = BrowserUtil.ie11();
         ie11Windows8_1.setPlatform(Platform.WIN8_1);
 
+        final String runLocally = System.getProperty("com.vaadin.testbench.Parameters.runLocally");
+
+        if ("chrome".equals(runLocally)) {
+            return Collections.singletonList(BrowserUtil.chrome());
+        }
+
+        if ("firefox".equals(runLocally)) {
+            return Collections.singletonList(BrowserUtil.firefox());
+        }
+
         return Arrays.asList(
                 safari,
                 ie11Windows8_1,
-                BrowserUtil.edge(),
-                BrowserUtil.firefox(),
-                BrowserUtil.chrome()
+                BrowserUtil.edge()
         );
     }
 

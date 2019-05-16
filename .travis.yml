@@ -2,17 +2,34 @@ language: java
 jdk: oraclejdk8
 dist: trusty
 
-script: mvn -B clean verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
+install: true
 
 # Cache requires a master build
 branches:
   only:
     - master
 
+services:
+  - xvfb
+
+addons:
+  chrome: stable
+  firefox: latest
+
+script:
+  - if [[ -n "$LOCAL_BROWSER" ]]; then
+      xvfb-run mvn -B clean verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -DrunLocally=$LOCAL_BROWSER -P 'npm-it,!bower-it' -Dwebdriver.chrome.driver=.driver/linux/googlechrome/64bit/chromedriver -Dwebdriver.gecko.driver=.driver/linux/marionette/64bit/geckodriver;
+    fi
+  - if [[ -n "$IT_PROFILE" ]]; then
+      mvn -B clean verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE;
+    fi
+
 env:
   matrix:
+    - LOCAL_BROWSER=chrome
+    - LOCAL_BROWSER=firefox
+    - IT_PROFILE=bower-it,!npm-it
     - IT_PROFILE=npm-it,!bower-it
-#    - IT_PROFILE=bower-it,!npm-it
 
 cache:
   directories:

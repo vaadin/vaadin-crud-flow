@@ -18,14 +18,23 @@
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
-        </driver>        
+        </driver>
     </windows>
     <linux>
         <driver id="googlechrome">
-            <version id="2.38">
+            <version id="74.0.3729.6">
                 <bitrate sixtyfourbit="true">
-                    <filelocation>https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip</filelocation>
-                    <hash>37741d14df5ed6bc3fcdf025b2d2ae1a0fc73216</hash>
+                    <filelocation>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip</filelocation>
+                    <hash>848a3689d5846eb1b2d5e0d745bb5adf655430ae</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+            </version>
+        </driver>
+        <driver id="marionette">
+            <version id="0.20.0">
+                <bitrate thirtytwobit="true" sixtyfourbit="true">
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz</filelocation>
+                    <hash>bfff56be07f88c4560582cde64cfbbc51abaeffe</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
@@ -33,10 +42,19 @@
     </linux>
     <osx>
         <driver id="googlechrome">
-            <version id="2.38">
+            <version id="74.0.3729.6">
                 <bitrate sixtyfourbit="true">
-                    <filelocation>https://chromedriver.storage.googleapis.com/2.38/chromedriver_mac64.zip</filelocation>
-                    <hash>54b11f9c3d64e84a9f4da3592154bfb0dedb59af</hash>
+                    <filelocation>https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_mac64.zip</filelocation>
+                    <hash>d13d083807beb828694045fd56a99cf4a605060d</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+            </version>
+        </driver>
+        <driver id="marionette">
+            <version id="0.20.0">
+                <bitrate thirtytwobit="true" sixtyfourbit="true">
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-macos.tar.gz</filelocation>
+                    <hash>02a5c93ccaf108b1282dc54350b6a3d860fa24d1</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
