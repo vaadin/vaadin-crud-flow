@@ -12,7 +12,7 @@ branches:
 env:
   matrix:
     - IT_PROFILE=npm-it,!bower-it
-#    - IT_PROFILE=bower-it,!npm-it
+    - IT_PROFILE=bower-it,!npm-it
 
 cache:
   directories:
