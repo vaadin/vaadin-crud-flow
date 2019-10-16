@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.vaadin.webjar</groupId>
             <artifactId>vaadin-crud</artifactId>
-            <version>1.0.5</version>
+            <version>1.1.0-alpha2</version>
         </dependency>
 
         <!--Pinned transitive webjars-->
