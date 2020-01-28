@@ -5,11 +5,13 @@ dist: xenial
 jobs:
   include:
     - stage: cache
-      script: mvn -B dependency:resolve -Dvaadin.productionMode
+      script: mvn -B clean compile
+    - stage: test
+      env:
+        - IT_PROFILE=bower-it,!npm-it
     - stage: test
       env:
         - IT_PROFILE=npm-it,!bower-it
-        - IT_PROFILE=bower-it,!npm-it
 script: xvfb-run  --server-args="-screen 0 1024x768x24" mvn -B verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
 
 # Cache requires a master build
