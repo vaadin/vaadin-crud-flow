@@ -2,7 +2,15 @@ language: java
 jdk: openjdk8
 dist: xenial
 
-script: xvfb-run  --server-args="-screen 0 1024x768x24" mvn -B clean verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
+jobs:
+  include:
+    - stage: cache
+      script: mvn -B dependency:resolve -Dvaadin.productionMode
+    - stage: test
+      env:
+        - IT_PROFILE=npm-it,!bower-it
+        - IT_PROFILE=bower-it,!npm-it
+script: xvfb-run  --server-args="-screen 0 1024x768x24" mvn -B verify -Dvaadin.productionMode -Dcom.vaadin.testbench.Parameters.testsInParallel=2 -Dvaadin.proKey=$VAADIN_PRO_KEY -Dsauce.user=$SAUCE_USER -Dsauce.sauceAccessKey=$SAUCE_ACCESSKEY -P$IT_PROFILE
 
 # Cache requires a master build
 branches:
@@ -10,10 +18,6 @@ branches:
     - master
     - /^\d+\.\d+$/
 
-env:
-  matrix:
-    - IT_PROFILE=npm-it,!bower-it
-    - IT_PROFILE=bower-it,!npm-it
 
 cache:
   directories:
