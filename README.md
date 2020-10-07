@@ -1,3 +1,7 @@
+ ⚠️ **This repository is deprecated**
+- Sources for this flow component can be found at https://github.com/vaadin/vaadin-flow-component
+- Tickets has been moved to the web component repository https://github.com/vaadin/vaadin-crud-flow/issues
+
 # Vaadin Crud for Flow
 
 Vaadin Crud for Flow is a UI component add-on for Vaadin which provides CRUD UI for any data backend.
